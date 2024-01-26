@@ -23,11 +23,11 @@ class _CounterScreenState extends State<CounterScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             BlocBuilder<CounterBloc, CounterState>(
-              /// to avoid unnessary rebuild if the state is same
+              /// To avoid unnecessary rebuild if the state is same
               buildWhen: (previous, current) =>
                   previous.counter != current.counter,
 
-              /// returns state widget
+              /// It returns state widget
               builder: (context, state) {
                 return Center(
                   child: Text(
@@ -47,7 +47,7 @@ class _CounterScreenState extends State<CounterScreen> {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    /// to increment
+                    /// To increment
                     context.read<CounterBloc>().add(IncrementCounter());
                   },
                   child: const Text('Add'),
@@ -57,7 +57,7 @@ class _CounterScreenState extends State<CounterScreen> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    /// to decrement
+                    /// To decrement
                     context.read<CounterBloc>().add(DecrementCounter());
                   },
                   child: const Text('Remove'),
